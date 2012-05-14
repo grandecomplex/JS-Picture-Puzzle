@@ -1,0 +1,15 @@
+.piece {
+    background:transparent url('../img/image.jpg') no-repeat;
+    position: absolute;
+    border: 1px solid #222;
+    z-index: 1;
+}
+
+.animate .piece {
+    -webkit-transition: all 0.25s ease-in-out;
+}
+
+.piece.active {
+    z-index: 10;
+
+}

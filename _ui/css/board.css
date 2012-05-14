@@ -1,0 +1,13 @@
+.board {
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#B9B9B9), to(#888));
+    opacity: 0;
+    -webkit-transition: opacity 1.5s linear;
+}
+
+.board.showing {
+    opacity: 1;
+}
