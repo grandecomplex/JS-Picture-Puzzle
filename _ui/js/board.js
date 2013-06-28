@@ -301,11 +301,6 @@ app.Board = (function(window, undefined) {
         this.piecesToMove = this.getPiecesToMove();
         
         addActiveClass(this.piecesToMove);
-        
-        this.element.parentNode.addEventListener("mouseout", function(e) {
-          
-          that.endEvent(e);
-        }, this);
     }; 
 
     Board.prototype.moveEvent = function(e) {
@@ -335,8 +330,6 @@ app.Board = (function(window, undefined) {
         }
         
         this.lastPoint = point;
-        
-        this.element.parentNode.removeEventListener("mouseenter");
     };
 
     
