@@ -7,7 +7,7 @@ window.addEventListener("load", function() {
     
     app.puzzle = new app.Puzzle({
         image: "_ui/img/image.jpg",
-        wrapper: "body"
+        wrapper: "#board-wrapper"
     });
 });
 

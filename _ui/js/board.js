@@ -275,7 +275,7 @@ app.Board = (function(window, undefined) {
     };
 
     Board.prototype.startEvent = function(e) {
-        var isSameRow, isSameColumn;
+        var isSameRow, isSameColumn, that = this;
                 
         var point = hasTouch ? e.changedTouches[0] : e;
                 
@@ -301,8 +301,11 @@ app.Board = (function(window, undefined) {
         this.piecesToMove = this.getPiecesToMove();
         
         addActiveClass(this.piecesToMove);
-
         
+        this.element.parentNode.addEventListener("mouseout", function(e) {
+          
+          that.endEvent(e);
+        }, this);
     }; 
 
     Board.prototype.moveEvent = function(e) {
@@ -332,6 +335,8 @@ app.Board = (function(window, undefined) {
         }
         
         this.lastPoint = point;
+        
+        this.element.parentNode.removeEventListener("mouseenter");
     };
 
     
