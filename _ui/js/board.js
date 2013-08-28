@@ -187,7 +187,7 @@ app.Board = (function(window, undefined) {
         tileWidth = (widthOfBoard/4);
         tileHeight = (heightOfBoard/4);
         
-        resizeEvent = ( ( 'onorientationchange' in window ) && app.platform !== "android")  ? 'orientationchange' : 'resize';
+        resizeEvent = ( ( 'onorientationchange' in window ) && app.isAndroid)  ? 'orientationchange' : 'resize';
         
         this.element = setup.board(options);
         this.pieces = setup.pieces(this.element);
@@ -275,7 +275,7 @@ app.Board = (function(window, undefined) {
     };
 
     Board.prototype.startEvent = function(e) {
-        var isSameRow, isSameColumn, that = this;
+        var isSameRow, isSameColumn;
                 
         var point = hasTouch ? e.changedTouches[0] : e;
                 

@@ -1,6 +1,16 @@
 app.Utils = (function(window) {
     var Utils = function() {};
     
+    var transformProperty;
+    
+    if (document.body.style.webkitTransform !== undefined) {
+      transformProperty = "webkitTransform";
+    } else if (document.body.style.mozTransform !== undefined){
+      transformProperty = "mozTransform";
+    } else {
+      transformProperty = "transform";
+    }
+    
     Utils.prototype.event = {
         eventMap: {},
         fire: function (eventName, data) {
@@ -55,7 +65,7 @@ app.Utils = (function(window) {
         currentTransform = currentTransform || {};
         var currentX = currentTransform.x || 0;
         var currentY = currentTransform.y || 0;
-        el.style.webkitTransform = "translate("+Math.ceil(currentX+toX)+"px, "+Math.ceil(currentY+toY)+"px)";
+        el.style[transformProperty] = "translate("+Math.ceil(currentX+toX)+"px, "+Math.ceil(currentY+toY)+"px)";
     };
     
     //  from Underscore.js
@@ -74,21 +84,11 @@ app.Utils = (function(window) {
         return shuffled;
     };
     
-    Utils.prototype.setPlatform = function() {        
-        ["Safari", "Chrome", "Android", "iPhone", "Blackberry"].forEach(function(browser) {
-            if (navigator.userAgent.indexOf(browser) > -1) {
-                browser = browser.toLowerCase();
-                if (browser === "safari" || browser === "chrome") {
-                    platform = "desktop";
-                } else {
-                    platform = browser.toLowerCase();
-                }   
-            }
-        });
-
-        document.body.setAttribute("data-platform", platform);
-        
-        return platform;
+    Utils.prototype.isAndroid = function() {      
+      if (navigator.userAgent.indexOf("Android") > -1) {
+        return true;
+      }
+      return false;
     };
     
     return Utils;

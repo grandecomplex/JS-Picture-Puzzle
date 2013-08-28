@@ -4,6 +4,9 @@ header {
     background: black;
     padding: 15px 0;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#000), to(#0F0F0F));
+    background-image: -moz-gradient(linear, left top, left bottom, from(#000), to(#0F0F0F));
+    background-image: gradient(linear, left top, left bottom, from(#000), to(#0F0F0F));
+    
     border-bottom: 1px solid #f4f4f4;
     position: relative;
 }
@@ -38,6 +41,7 @@ header > h1 {
     position: absolute;
     right: 15px;
     -webkit-appearance: none;
+    appearance: none;
     border: 1px solid #000;
     text-transform: uppercase;
     background: #00FB8D;

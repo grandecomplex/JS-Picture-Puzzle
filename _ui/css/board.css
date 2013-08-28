@@ -4,8 +4,12 @@
     position: relative;
     z-index: 2;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#B9B9B9), to(#888));
+    background-image: -moz-gradient(linear, left top, left bottom, from(#B9B9B9), to(#888));
+    background-image: gradient(linear, left top, left bottom, from(#B9B9B9), to(#888));
     opacity: 0;
     -webkit-transition: opacity 1.5s linear;
+    -moz-transition: opacity 1.5s linear;
+    transition: opacity 1.5s linear;
 }
 
 .board.showing {
